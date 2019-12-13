@@ -5,8 +5,8 @@ from statistics import mean
 
 # Define Port
 port = 50069
-latitude = 35.694
-longitude = 139.754
+latitude = <"YOUR SERVER2 LATITUDE HERE">
+longitude = <"YOUR SERVER2 LONGITUDE HERE">
 
 ##########################################
 #            DRIVER FUNCTION             #
@@ -14,11 +14,11 @@ longitude = 139.754
 def main ():
     # Welcome Print
     print ("[C] Client process started.")
-    print ("[C] This machine is a Google Cloud VM hosted in Tokyo, Japan.")
-    print( "[S] Coordenates of host (Lat, Long): 35.694, 139.754")
+    print ("[C] This machine is a <information about your machine>.")
+    print( "[S] Coordenates of host (Lat, Long): x, y")
 
     # Running traceroute bash script
-    print ("\n\n[C] Running bash taceroute subprocess with target 196.52.55.112.")
+    print ("\n\n[C] Running bash taceroute subprocess with target <"IP ADDRESS OF SERVER1">")
     subprocess.call("bash ./trace_compute_market.sh", shell=True)
     print ("[C] Bash subprocess completed.")
 
@@ -27,7 +27,7 @@ def main ():
     print("\n\n[C] Socket successfully created.")
 
     # connecting to the server 
-    s.connect(("196.52.55.112", port)) 
+    s.connect((<"IP ADDRESS OF SERVER1">, port)) 
     print("[C] The socket has successfully connected to 196.52.55.112.")
 
     client_time_diff = []
@@ -191,8 +191,8 @@ def Calculate_Hops(route, reached):
 def Averages (num_of_hops, client_time_avg):
     time = client_time_avg / num_of_hops
     #Distance from the 2 coordenates is hard coded
-    distance = 9643.11 / num_of_hops
-    speed = 9643.11 / client_time_avg
+    distance = <"KNOWN DISTANCE BETWEEN SERVER1 AND SERVER2"> / num_of_hops
+    speed = <"KNOWN DISTANCE BETWEEN SERVER1 AND SERVER2"> / client_time_avg
 
     return time, distance, speed
 
