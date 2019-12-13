@@ -9,8 +9,8 @@ import subprocess
 from statistics import mean
 
 PORT = 50069
-latitude = "YOUR LATITUDE FOR SERVER1 HERE"
-longitude = "YOUR LONGITUDE FOR SERVER1 HERE"
+latitude = <"YOUR LATITUDE FOR SERVER1 HERE">
+longitude = <"YOUR LONGITUDE FOR SERVER1 HERE">
 
 ##########################################
 #            DRIVER FUNCTION             #
@@ -22,7 +22,7 @@ def main():
     print( "[S] Coordenates of host (Lat, Long): x, y")
 
     # Running traceroute bash script
-    print ("\n\n[S] Running bash taceroute subprocess with target [TARGER MACHINE IP ADDRESS].\nThis might take a few seconds...\nPlease wait until the process is completed to run the client script")
+    print ("\n\n[S] Running bash taceroute subprocess with target <TARGER MACHINE IP ADDRESS>.\nThis might take a few seconds...\nPlease wait until the process is completed to run the client script")
     subprocess.run(["./trace_Google_VM.sh"], shell=True)
     print ("[S] Bash subprocess completed.")
 
@@ -210,8 +210,8 @@ def Calculate_Hops(route, reached):
 def Averages(num_of_hops, server_time_avg):
     time = server_time_avg / num_of_hops
     #Distance from the 2 machines is hard coded
-    distance = "YOUR DISTANCE BETWEEN SERVERS GOES HERE" / num_of_hops
-    speed = "YOUR DISTANCE BETWEEN SERVERS GOES HERE" / server_time_avg
+    distance = <"YOUR DISTANCE BETWEEN SERVERS GOES HERE"> / num_of_hops
+    speed = <"YOUR DISTANCE BETWEEN SERVERS GOES HERE"> / server_time_avg
 
     return time, distance, speed
 
