@@ -22,7 +22,7 @@ def main():
     print( "[S] Coordenates of host (Lat, Long): x, y")
 
     # Running traceroute bash script
-    print ("\n\n[S] Running bash taceroute subprocess with target <TARGER MACHINE IP ADDRESS>.\nThis might take a few seconds...\nPlease wait until the process is completed to run the client script")
+    print ("\n\n[S] Running bash taceroute subprocess with target <"IP ADDRESS OF SERVER2">.\nThis might take a few seconds...\nPlease wait until the process is completed to run the client script")
     subprocess.run(["./trace_Google_VM.sh"], shell=True)
     print ("[S] Bash subprocess completed.")
 
