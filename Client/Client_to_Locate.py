@@ -9,10 +9,10 @@ from statistics import mean
 ##########################################
 def main ():
     # Initialize necessary variables #
-    Google_Coordenates = (0, 0)
-    Google_Distance = 0
-    ComputeM_Coordenates = (0, 0)
-    ComputeM_Distance = 0
+    Server2_Coordenates = (0, 0)
+    Server2_Distance = 0
+    Server1_Coordenates = (0, 0)
+    Server1_Distance = 0
 
     # Welcome Print
     print ("[C] Dev CLient started.")
@@ -25,15 +25,15 @@ def main ():
     if n > 0: #PARENT process
         print ("\n\n[C] Parent process separated.\nThe parent pid is: ", os.getpid())
         print ("[C - P] For identification purposes, the parent process will be printed with a P.")
-        Target_Server = "35.194.119.7" #GoogleVM
+        Target_Server = <"IP ADDRESS OF SERVER2">
         PORT = 50042
         trace_rt = "route_to_Google.txt"
 
-        print ("\n\n[C - P] Parent process runnig bash traceroute subprocess with target 35.194.119.7.\nThis might take a few seconds please wait...")
+        print ("\n\n[C - P] Parent process runnig bash traceroute subprocess with target <"IP ADDRESS OF SERVER2">.\nThis might take a few seconds please wait...")
         subprocess.run(["./trace_GVM.sh"], shell=True)
         print ("[C - P] Bash subprocess completed.")
         
-        print ("\n\n[C - P] The parent process will attempt connection to 35.194.119.7.")
+        print ("\n\n[C - P] The parent process will attempt connection to <"IP ADDRESS OF SERVER2">")
         child_pid = n
         pid = 'P'
         time_diff = []
@@ -41,17 +41,17 @@ def main ():
     else:  #CHILD process
         print ("\n\n[C] Child process spawned.\nThe child pid is: ", os.getpid())
         print ("[C - C] For identification purposes, the parent process will be printed with a C.")
-        Target_Server = "196.52.55.112" #Compute Market
+        Target_Server = <"IP ADDRESS OF SERVER1"> #Compute Market
         PORT = 50043
         trace_rt = "route_to_cm.txt"
 
-        print ("\n\n[C - C] Child process runnig bash traceroute subprocess with target 196.52.55.112.\nThis might take a few seconds please wait...")
+        print ("\n\n[C - C] Child process runnig bash traceroute subprocess with target <"IP ADDRESS OF SERVER1">.\nThis might take a few seconds please wait...")
         subprocess.run(["./trace_CM.sh"], shell=True)
         print ("[C - C] Bash subprocess completed.")
 
         pid = 'C'
         time_diff = []
-        print ("\n\n[C - C] The child process will attempt connection to 196.52.55.112.")
+        print ("\n\n[C - C] The child process will attempt connection to <"IP ADDRESS OF SERVER1">")
 
 
     # Both processes run this
@@ -118,17 +118,17 @@ def main ():
 
     # Update results and kill child
     if pid == 'P': #PARENT
-        Google_Coordenates = (latitude, longitude)   
-        Google_Distance = distance 
+        Server2_Coordenates = (latitude, longitude)   
+        Server2_Distance = distance 
         print ("\n\n[C - P] Child process killed")
     
     elif pid == 'C': #CHILD
-        ComputeM_Coordenates = (latitude, longitude)
-        ComputeM_Distance = distance
+        Server1_Coordenates = (latitude, longitude)
+        Server1_Distance = distance
         exit(0)
 
     print ("\n\n[C] Calculating coordenates...")
-    Coor = Find_Coordenates (ComputeM_Distance, Google_Distance, ComputeM_Coordenates, Google_Coordenates)
+    Coor = Find_Coordenates (Server1_Distance, Server2_Distance, Server1_Coordenates, Server2_Coordenates)
 
 
 #################################################
